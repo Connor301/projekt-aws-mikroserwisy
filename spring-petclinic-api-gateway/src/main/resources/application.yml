@@ -3,23 +3,23 @@ spring:
     name: api-gateway
   config:
     import: optional:configserver:${CONFIG_SERVER_URL:http://config-server.petclinic:8888/}
-  cloud:
+    cloud:
     gateway:
       routes:
         - id: vets-service
-          uri: http://petclinic-alb-1231151435.us-east-2.elb.amazonaws.com/api/vet
+          uri: lb://vets-service
           predicates:
             - Path=/api/vet/**
           filters:
             - StripPrefix=2
         - id: visits-service
-          uri: http://petclinic-alb-1231151435.us-east-2.elb.amazonaws.com/api/visit
+          uri: lb://visits-service
           predicates:
             - Path=/api/visit/**
           filters:
             - StripPrefix=2
         - id: customers-service
-          uri: http://petclinic-alb-1231151435.us-east-2.elb.amazonaws.com/api/customer
+          uri: lb://customers-service
           predicates:
             - Path=/api/customer/**
           filters:
