@@ -33,7 +33,7 @@ import static java.util.stream.Collectors.joining;
 public class VisitsServiceClient {
 
     // Could be changed for testing purpose
-    private String hostname = "http://internal-petclinic-internal-alb-378481021.us-east-2.elb.amazonaws.com:8082/";
+    private String hostname = "http://visits-service.petclinic/";
 
     private final WebClient.Builder webClientBuilder;
 
