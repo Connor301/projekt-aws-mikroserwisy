@@ -32,7 +32,7 @@ public class CustomersServiceClient {
 
     public Mono<OwnerDetails> getOwner(final int ownerId) {
         return webClientBuilder.build().get()
-            .uri("http://customers-service/owners/{ownerId}", ownerId)
+            .uri("http://internal-petclinic-internal-alb-378481021.us-east-2.elb.amazonaws.com:8081/owners/{ownerId}", ownerId)
             .retrieve()
             .bodyToMono(OwnerDetails.class);
     }
