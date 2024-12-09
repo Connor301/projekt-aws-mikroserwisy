@@ -7,23 +7,17 @@ spring:
     gateway:
       routes:
         - id: vets-service
-          uri: lb://vets-service
+          uri: http://internal-petclinic-internal-alb-378481021.us-east-2.elb.amazonaws.com
           predicates:
             - Path=/api/vet/**
-          filters:
-            - StripPrefix=2
         - id: visits-service
-          uri: lb://visits-service
+          uri: http://internal-petclinic-internal-alb-378481021.us-east-2.elb.amazonaws.com
           predicates:
             - Path=/api/visit/**
-          filters:
-            - StripPrefix=2
         - id: customers-service
-          uri: lb://customers-service
+          uri: http://internal-petclinic-internal-alb-378481021.us-east-2.elb.amazonaws.com
           predicates:
             - Path=/api/customer/**
-          filters:
-            - StripPrefix=2
 
 
 
@@ -33,25 +27,4 @@ spring:
     activate:
       on-profile: docker
     import: configserver:http://config-server.petclinic:8888
-    cloud:
-    gateway:
-      routes:
-        - id: vets-service
-          uri: lb://vets-service
-          predicates:
-            - Path=/api/vet/**
-          filters:
-            - StripPrefix=2
-        - id: visits-service
-          uri: lb://visits-service
-          predicates:
-            - Path=/api/visit/**
-          filters:
-            - StripPrefix=2
-        - id: customers-service
-          uri: lb://customers-service
-          predicates:
-            - Path=/api/customer/**
-          filters:
-            - StripPrefix=2
 
