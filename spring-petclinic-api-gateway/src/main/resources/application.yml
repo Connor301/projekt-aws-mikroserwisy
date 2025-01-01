@@ -7,15 +7,15 @@ spring:
     gateway:
       routes:
         - id: vets-service
-          uri: http://internal-petclinic-internal-alb-378481021.us-east-2.elb.amazonaws.com
+          uri: http://internal-petclinic-internal-alb-378481021.us-east-2.elb.amazonaws.com/api/vet/
           predicates:
             - Path=/api/vet/**
         - id: visits-service
-          uri: http://internal-petclinic-internal-alb-378481021.us-east-2.elb.amazonaws.com
+          uri: http://internal-petclinic-internal-alb-378481021.us-east-2.elb.amazonaws.com/api/visits
           predicates:
             - Path=/api/visit/**
         - id: customers-service
-          uri: http://internal-petclinic-internal-alb-378481021.us-east-2.elb.amazonaws.com
+          uri: http://internal-petclinic-internal-alb-378481021.us-east-2.elb.amazonaws.com/api/customer/
           predicates:
             - Path=/api/customer/**
 
