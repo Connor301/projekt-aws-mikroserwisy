@@ -18,6 +18,8 @@ spring:
           uri: http://internal-petclinic-internal-alb-378481021.us-east-2.elb.amazonaws.com/api/customer/
           predicates:
             - Path=/api/customer/**
+          filters:
+            - StripPrefix=2
 
 
 
