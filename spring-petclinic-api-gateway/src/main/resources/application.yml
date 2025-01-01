@@ -10,10 +10,14 @@ spring:
           uri: http://internal-petclinic-internal-alb-378481021.us-east-2.elb.amazonaws.com/api/vet/
           predicates:
             - Path=/api/vet/**
+          filters:
+            - StripPrefix=2
         - id: visits-service
           uri: http://internal-petclinic-internal-alb-378481021.us-east-2.elb.amazonaws.com/api/visits
           predicates:
             - Path=/api/visit/**
+          filters:
+            - StripPrefix=2
         - id: customers-service
           uri: http://internal-petclinic-internal-alb-378481021.us-east-2.elb.amazonaws.com/api/customer/
           predicates:
